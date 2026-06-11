@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: clipeos-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        fromDatabase:
+          name: clipeos-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 3001
+    healthCheckPath: /health
+    autoDeploy: true

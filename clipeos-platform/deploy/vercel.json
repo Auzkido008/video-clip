@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "clipeos-frontend",
+  "alias": "clipeos.vercel.app",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://clipeos-backend.onrender.com/api/$1"
+    }
+  ]
+}
