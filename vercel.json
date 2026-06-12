@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/**",
+      "src": "clipeos-platform/frontend/dist/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/$1"
+      "dest": "/clipeos-platform/frontend/dist/$1"
     }
   ]
 }
